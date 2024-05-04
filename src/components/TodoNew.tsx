@@ -41,7 +41,7 @@ export default function TodoNew({
           />
           <textarea
             name="todoDescription"
-            id="todoDescriptio"
+            id="todoDescription"
             placeholder="a little detail here..."
             className="w-full p-2.5 bg-white/70 text-sm"
             value={todoDescription}

@@ -1,15 +1,17 @@
 export interface Todo {
-  id: number
-  title: string
-  description?: string
-  isComplete: boolean
+  id: number;
+  title: string;
+  description?: string;
+  isComplete: boolean;
 }
 
 export interface AddTodo {
-  addTodo: AddTodo
-  todos: Todo[]
+  addTodo: AddTodo;
+  todos: Todo[];
 }
 
-export interface TodoFilter {
-  filter: 'all' | 'completed' | 'incomplete'
+export enum TodoFilter {
+  ALL = "all",
+  COMPLETED = "completed",
+  INCOMPLETE = "incomplete",
 }

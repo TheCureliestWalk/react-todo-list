@@ -1,20 +1,20 @@
-
-import type { Todo } from "@/types/Todo";
-import { FaTrash as Trash } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { Todo, TodoFilter } from "@/types/Todo";
+import { FaTrash as Trash } from "react-icons/fa";
 
 export default function TodoList({
   todos,
   deleteTodo,
   clearTodos,
   toggleTodo,
+  filterTodos,
 }: {
   todos: Todo[];
   deleteTodo: any;
   clearTodos: any;
   toggleTodo: any;
+  filterTodos: any;
 }) {
-
-    const [filter, setFilter] = useState("all");
   return (
     <div className="max-w-md mx-auto bg-white/70 text-gray-900 mt-8 p-2.5">
       <div className="flex justify-between">
@@ -25,23 +25,25 @@ export default function TodoList({
         >
           Clear All
         </button>
-        <select
-          name="todoFilter"
-          id="todoFilter"
-          className="outline outline-lime-300"
-        >
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="incomplete">Incomplete</option>
-        </select>
+        <div className="flex gap-2">
+          <label htmlFor="todoFilter">Filter</label>
+          <select
+            name="todoFilter"
+            id="todoFilter"
+            className="outline outline-lime-300"
+            onChange={filterTodos}
+          >
+            <option value={TodoFilter.ALL}>All</option>
+            <option value={TodoFilter.COMPLETED}>Completed</option>
+            <option value={TodoFilter.INCOMPLETE}>Incomplete</option>
+          </select>
+        </div>
       </div>
 
       <ul className="mt-2.5">
-        {todos.reverse().map((todo, index) => (
+        {todos.map((todo, index) => (
           <div key={index}>
-            <li
-              className="flex justify-between items-center py-2 hover:bg-green-300 duration-100 rounded px-1 cursor-pointer"
-            >
+            <li className="flex justify-between items-center py-2 hover:bg-green-300 duration-100 rounded px-1 cursor-pointer">
               <div onClick={() => toggleTodo(todo.id)} className="w-full">
                 <h3
                   className={`font-bold text-base ${todo.isComplete ? "line-through" : ""}`}
