@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
 import TodoNew from "@/components/TodoNew";
-import TodoList from "@/components/TodoList";
-import { AddTodo, Todo, TodoFilter } from "@/types/Todo";
+import TodoListBox from "@/components/TodoListBox";
+import { Todo } from "@/types/Todo";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos);
 
   // Fetch data from localStorage
   useEffect(() => {
     const savedTodos = localStorage.getItem("todos");
     console.log("fetching todo from localStorage"); // debug
     setTodos(savedTodos ? JSON.parse(savedTodos) : []);
+    setFilteredTodos(savedTodos ? JSON.parse(savedTodos) : []);
   }, []);
 
   const addTodo = (todo: Todo) => {
@@ -47,37 +49,21 @@ export default function Home() {
       return todo;
     });
 
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
-  };
-
-  const filterTodos = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    switch (e.target.value) {
-      case TodoFilter.COMPLETED:
-        console.log("completed");
-        return todos.filter((todo) => todo.isComplete);
-      case TodoFilter.INCOMPLETE:
-        console.log("incomplete");
-        return todos.filter((todo) => !todo.isComplete);
-      case TodoFilter.ALL:
-        console.log("all");
-        return setTodos(todos);
-      default:
-        return todos;
-    }
   };
 
   return (
     <main
-      className={`mx-auto p-16 ${inter.className} bg-gradient-to-r from-pink-300 to-sky-300 text-gray-900 w-full max-h-screen`}
+      className={`mx-auto p-16 ${inter.className} bg-gradient-to-r from-pink-300 to-sky-300 text-gray-900 w-full min-h-screen`}
     >
       <h1 className="text-4xl text-center py-6">To-Do List</h1>
       <TodoNew addTodo={addTodo} todos={todos} />
-      <TodoList
+      <TodoListBox
         todos={todos}
         deleteTodo={deleteTodo}
         clearTodos={clearTodos}
         toggleTodo={toggleTodo}
-        filterTodos={filterTodos}
       />
     </main>
   );
