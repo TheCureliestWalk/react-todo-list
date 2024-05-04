@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos);
 
   // Fetch data from localStorage
   useEffect(() => {
