@@ -1,3 +1,4 @@
+import { Head } from 'next/head';
 import { useState, useEffect } from 'react';
 import { Inter } from 'next/font/google';
 import TodoNew from '@/components/TodoNew';
@@ -52,17 +53,17 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`mx-auto p-16 ${inter.className} bg-gradient-to-r from-pink-300 to-sky-300 text-gray-900 w-full min-h-screen`}
-    >
-      <h1 className="text-4xl text-center py-6">To-Do List</h1>
-      <TodoNew addTodo={addTodo} todos={todos} />
-      <TodoListBox
-        todos={todos}
-        deleteTodo={deleteTodo}
-        clearTodos={clearTodos}
-        toggleTodo={toggleTodo}
-      />
-    </main>
+      <main
+        className={`mx-auto p-16 ${inter.className} bg-gradient-to-r from-pink-300 to-sky-300 text-gray-900 w-full min-h-screen`}
+      >
+        <h1 className="text-4xl text-center py-6">To-Do List</h1>
+        <TodoNew addTodo={addTodo} todos={todos} />
+        <TodoListBox
+          todos={todos}
+          deleteTodo={deleteTodo}
+          clearTodos={clearTodos}
+          toggleTodo={toggleTodo}
+        />
+      </main>
   );
 }

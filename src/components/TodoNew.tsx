@@ -29,7 +29,7 @@ export default function TodoNew({
 
   return (
     <div className="flex flex-col max-w-md mx-auto">
-      <form className="flex flex-col" onSubmit={handleTodo}>
+      <form className="flex flex-col" onSubmit={handleTodo} name="newTodoForm">
         <div className="rounded border border-gray-300 shadow-lg">
           <input
             type="text"
@@ -52,7 +52,7 @@ export default function TodoNew({
 
         <button
           className="w-full shadow-lg px-4 py-2.5 rounded border border-green-500 bg-green-500 hover:bg-green-700 duration-100 text-white"
-          type='submit'
+          type="submit"
         >
           + Add New Todo
         </button>

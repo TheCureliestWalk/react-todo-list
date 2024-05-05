@@ -47,13 +47,14 @@ export default function TodoListBox({
             })}
           </Tab.List>
           <Tab.Panels>
-            <Tab.Panel>
+            <Tab.Panel id="todoLists">
               {todos.map((todo, index) => (
                 <div key={index}>
                   <li className="flex justify-between items-center hover:bg-green-300 duration-100 rounded cursor-pointer">
                     <div
                       onClick={() => toggleTodo(todo.id)}
                       className="w-full py-2 px-1"
+                      id={`todo-${index}`}
                     >
                       <h3
                         className={`font-bold text-base ${todo.isComplete ? 'line-through' : ''}`}
