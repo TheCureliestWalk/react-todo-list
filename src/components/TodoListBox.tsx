@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Todo, TodoFilter } from "@/types/Todo";
-import { FaTrash as Trash } from "react-icons/fa";
-import { Tab } from "@headlessui/react";
+import { useState, useEffect } from 'react';
+import { Todo, TodoFilter } from '@/types/Todo';
+import { FaTrash as Trash } from 'react-icons/fa';
+import { Tab } from '@headlessui/react';
 
 export default function TodoListBox({
   todos,
@@ -56,12 +56,12 @@ export default function TodoListBox({
                       className="w-full py-2 px-1"
                     >
                       <h3
-                        className={`font-bold text-base ${todo.isComplete ? "line-through" : ""}`}
+                        className={`font-bold text-base ${todo.isComplete ? 'line-through' : ''}`}
                       >
                         {todo.title}
                       </h3>
                       <p
-                        className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? "line-through" : ""}`}
+                        className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? 'line-through' : ''}`}
                       >
                         {todo.description}
                       </p>
@@ -90,12 +90,12 @@ export default function TodoListBox({
                           className="w-full py-2 px-1"
                         >
                           <h3
-                            className={`font-bold text-base ${todo.isComplete ? "line-through" : ""}`}
+                            className={`font-bold text-base ${todo.isComplete ? 'line-through' : ''}`}
                           >
                             {todo.title}
                           </h3>
                           <p
-                            className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? "line-through" : ""}`}
+                            className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? 'line-through' : ''}`}
                           >
                             {todo.description}
                           </p>
@@ -126,12 +126,12 @@ export default function TodoListBox({
                           className="w-full py-2 px-1"
                         >
                           <h3
-                            className={`font-bold text-base ${todo.isComplete ? "line-through" : ""}`}
+                            className={`font-bold text-base ${todo.isComplete ? 'line-through' : ''}`}
                           >
                             {todo.title}
                           </h3>
                           <p
-                            className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? "line-through" : ""}`}
+                            className={`text-sm text-gray-700 ml-3 pl-1 border-l-2 border-sky-400 ${todo.isComplete ? 'line-through' : ''}`}
                           >
                             {todo.description}
                           </p>

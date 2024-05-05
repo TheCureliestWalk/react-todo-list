@@ -1,5 +1,5 @@
-import { useState } from "react";
-import type { Todo, AddTodo } from "@/types/Todo";
+import { useState } from 'react';
+import type { Todo, AddTodo } from '@/types/Todo';
 
 export default function TodoNew({
   addTodo,
@@ -8,8 +8,8 @@ export default function TodoNew({
   addTodo: Todo;
   todos: Todo[];
 }) {
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoDescription, setTodoDescription] = useState("");
+  const [todoTitle, setTodoTitle] = useState('');
+  const [todoDescription, setTodoDescription] = useState('');
 
   const data: Todo = {
     id: todos.length + 1,
@@ -22,8 +22,8 @@ export default function TodoNew({
     addTodo(data);
 
     // reset input fields
-    setTodoTitle("");
-    setTodoDescription("");
+    setTodoTitle('');
+    setTodoDescription('');
   };
 
   return (

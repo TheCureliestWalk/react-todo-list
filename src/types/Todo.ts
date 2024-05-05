@@ -11,7 +11,7 @@ export interface AddTodo {
 }
 
 export enum TodoFilter {
-  ALL = "All",
-  COMPLETED = "Completed",
-  INCOMPLETE = "Incomplete",
+  ALL = 'All',
+  COMPLETED = 'Completed',
+  INCOMPLETE = 'Incomplete',
 }

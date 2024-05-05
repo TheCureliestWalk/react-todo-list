@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-import { Inter } from "next/font/google";
-import TodoNew from "@/components/TodoNew";
-import TodoListBox from "@/components/TodoListBox";
-import { Todo } from "@/types/Todo";
+import { useState, useEffect } from 'react';
+import { Inter } from 'next/font/google';
+import TodoNew from '@/components/TodoNew';
+import TodoListBox from '@/components/TodoListBox';
+import { Todo } from '@/types/Todo';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   // Fetch data from localStorage
   useEffect(() => {
-    const savedTodos = localStorage.getItem("todos");
-    console.log("fetching todo from localStorage"); // debug
+    const savedTodos = localStorage.getItem('todos');
+    console.log('fetching todo from localStorage'); // debug
     setTodos(savedTodos ? JSON.parse(savedTodos) : []);
     setFilteredTodos(savedTodos ? JSON.parse(savedTodos) : []);
   }, []);
@@ -20,23 +20,23 @@ export default function Home() {
   const addTodo = (todo: Todo) => {
     // check if data is empty
     if (todo.title.length === 0) {
-      alert("Title is required");
+      alert('Title is required');
       return;
     }
 
     const updatedTodos = [...todos, todo];
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
   };
 
   const deleteTodo = (id: number) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
   };
 
   const clearTodos = () => {
-    localStorage.setItem("todos", "[]");
+    localStorage.setItem('todos', '[]');
     setTodos([]);
   };
 
@@ -48,7 +48,7 @@ export default function Home() {
       return todo;
     });
 
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
   };
 
