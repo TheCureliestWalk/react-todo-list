@@ -14,7 +14,6 @@ export default function Home() {
     const savedTodos = localStorage.getItem('todos');
     console.log('fetching todo from localStorage'); // debug
     setTodos(savedTodos ? JSON.parse(savedTodos) : []);
-    setFilteredTodos(savedTodos ? JSON.parse(savedTodos) : []);
   }, []);
 
   const addTodo = (todo: Todo) => {
